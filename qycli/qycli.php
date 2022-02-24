@@ -26,7 +26,7 @@ function qyc_pma_submenu() {
   		1 );
 }
 
-function qyc_pma_admin_page(){
+function qyc_pma_admin_page() {
 	?>
 	<div style="z-index: 10; margin: 0 -20px -70px -20px; width: calc(100% + 20px); height: calc(100vh - 32px);">
 		<iframe width="100%" height="100%" src="/qyc-pma/"></iframe>
@@ -34,10 +34,10 @@ function qyc_pma_admin_page(){
     <?php
 }
 
-function remove_footer_admin () {
+function remove_footer_admin() {
 echo '';
 }
-function remove_footer_admin_ver () {
+function remove_footer_admin_ver() {
 return '';
 }
  
