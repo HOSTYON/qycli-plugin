@@ -21,7 +21,7 @@ function qyc_pma_submenu() {
         'qycli PMA',
         '<div class="dashicons dashicons-database"></div> qycli PMA',
         'administrator',
-        '/qyc-pma',
+        'qyc-pma',
         'qyc_pma_admin_page',
   		1 );
 }
