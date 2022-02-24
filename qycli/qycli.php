@@ -14,10 +14,6 @@ License: MIT http://opensource.org/licenses/MIT
 
 add_action( 'admin_menu', 'qyc_pma_menu' );
 
-function qyc_pma_menu() {
-	add_menu_page( 'qyc PMA', 'qyc PMA', 'manage_options', 'qyc-pma', 'qyc_pma_admin_page', 'dashicons-database', 75  );
-}
-
 add_action("admin_menu", "qyc_pma_submenu");
 function qyc_pma_submenu() {
   add_submenu_page(
@@ -33,9 +29,7 @@ function qyc_pma_submenu() {
 function qyc_pma_admin_page(){
 	?>
 	<div style="z-index: 10; margin: 0 -20px -70px -20px; width: calc(100% + 20px); height: calc(100vh - 32px);">
-		<iframe width="100%" height="100%" src="/qyc-pma/">
-			
-		</iframe>
+		<iframe width="100%" height="100%" src="/qyc-pma/"></iframe>
 	</div>
     <?php
 }
