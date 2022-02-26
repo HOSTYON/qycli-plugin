@@ -12,6 +12,9 @@ Version: 1.0.0
 License: MIT http://opensource.org/licenses/MIT
 */
 
+add_filter( 'auto_update_plugin', '__return_true' );
+add_filter( 'auto_update_theme', '__return_true' );
+
 add_action("admin_menu", "qyc_pma_submenu");
 function qyc_pma_submenu() {
   add_submenu_page(
