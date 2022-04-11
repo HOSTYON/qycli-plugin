@@ -31,7 +31,7 @@ function qyc_admin_page() {
 	?>
 	<div class="wrap">
 		<h2 style="margin-bottom: 15px;">qycli Utilities</h2>
-		<a href="http://<?php echo DB_USER ?>:<?php echo DB_PASSWORD ?>@<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank"><div class="submit button button-primary">
+		<a href="https://<?php echo DB_USER ?>:<?php echo DB_PASSWORD ?>@<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank"><div class="submit button button-primary">
 			phpMyAdmin <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
 		<h3 style="margin: 30px 0 15px 0;">WP redis Object Caching Statistics</h3>
 		<?php $GLOBALS['wp_object_cache']->stats(); ?>
