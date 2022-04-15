@@ -1,22 +1,22 @@
 <?php
 /**
  * @package qycli-utilities
- * @version 1.0.0
+ * @version 1.0.1
  */
 /*
 Plugin Name: qycli Utilities
 Description: qycli Utilities
 Author: Micha Cassola
 Author URI: https://github.com/michacassola
-Version: 1.0.0
+Version: 1.0.1
 License: MIT http://opensource.org/licenses/MIT
 */
 
 add_filter( 'auto_update_plugin', '__return_true' );
 add_filter( 'auto_update_theme', '__return_true' );
 
-add_action("admin_menu", "qyc_pma_submenu");
-function qyc_pma_submenu() {
+add_action("admin_menu", "qyc_submenu");
+function qyc_submenu() {
   add_submenu_page(
         'tools.php',
         'qycli Utilities',
@@ -28,18 +28,54 @@ function qyc_pma_submenu() {
 }
 
 function qyc_admin_page() {
-	?>
+	//Get the active tab from the $_GET param
+  $default_tab = null;
+  $tab = isset($_GET['tab']) ? $_GET['tab'] : $default_tab;
+  
+  ?>
 	<div class="wrap">
 		<h2 style="margin-bottom: 15px;">qycli Utilities</h2>
-        <p>Login to phpMyAdmin with:</p>
-        <p>User: <?php echo DB_USER ?> <br>
-        Password: <?php echo DB_PASSWORD ?></p>
+
+    <!-- Here are our tabs -->
+    <nav class="nav-tab-wrapper">
+      <a href="?page=qycli-utilities" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">phpMyAdmin Login</a>
+      <a href="?page=qycli-utilities&tab=object-stats" class="nav-tab <?php if($tab==='object-stats'):?>nav-tab-active<?php endif; ?>">Object Cache Stats</a>
+      <a href="?page=qycli-utilities&tab=tools" class="nav-tab <?php if($tab==='tools'):?>nav-tab-active<?php endif; ?>">Tools</a>
+    </nav>
+
+    <div class="tab-content">
+    <?php switch($tab) :
+      case 'object-stats':
+        qyc_object_stats_tab();
+        break;
+      case 'tools':
+        echo 'Tools';
+        break;
+      default:
+        qyc_default_tab();
+        break;
+    endswitch; ?>
+    </div>
+
+  </div>
+    <?php
+}
+
+function qyc_default_tab() {
+  ?>
+    <br><p>Login to phpMyAdmin with:</p>
+    <p>User: <?php echo DB_USER ?> <br>
+      Password: <?php echo DB_PASSWORD ?></p>
 		<a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank"><div class="submit button button-primary">
 			phpMyAdmin <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
-		<h3 style="margin: 30px 0 15px 0;">WP redis Object Caching Statistics</h3>
+  <?php
+}
+
+function qyc_object_stats_tab() {
+  ?>
+  <h3 style="margin: 30px 0 15px 0;">WP redis Object Caching Statistics</h3>
 		<?php $GLOBALS['wp_object_cache']->stats(); ?>
-	</div>
-    <?php
+  <?php
 }
 
 if ( function_exists( 'wp_cache_flush' ) ) {
