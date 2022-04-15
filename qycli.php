@@ -39,8 +39,9 @@ function qyc_admin_page() {
     <!-- Here are our tabs -->
     <nav class="nav-tab-wrapper">
       <a href="?page=qycli-utilities" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">phpMyAdmin Login</a>
+      <a href="?page=qycli-utilities&tab=filemanager" class="nav-tab <?php if($tab==='filemanager'):?>nav-tab-active<?php endif; ?>">Filemanager</a>
       <a href="?page=qycli-utilities&tab=object-stats" class="nav-tab <?php if($tab==='object-stats'):?>nav-tab-active<?php endif; ?>">Object Cache Stats</a>
-      <a href="?page=qycli-utilities&tab=tools" class="nav-tab <?php if($tab==='tools'):?>nav-tab-active<?php endif; ?>">Tools</a>
+      
     </nav>
 
     <div class="tab-content">
@@ -48,8 +49,8 @@ function qyc_admin_page() {
       case 'object-stats':
         qyc_object_stats_tab();
         break;
-      case 'tools':
-        echo 'Tools';
+      case 'filemanager':
+        qyc_filemanager_tab();
         break;
       default:
         qyc_default_tab();
@@ -76,6 +77,14 @@ function qyc_object_stats_tab() {
   <h3 style="margin: 30px 0 15px 0;">WP redis Object Caching Statistics</h3>
 		<?php $GLOBALS['wp_object_cache']->stats(); ?>
   <?php
+}
+
+function qyc_filemanager_tab() {
+
+    define('FM_EMBED', true);
+    define('FM_SELF_URL', $_SERVER['PHP_SELF']);
+    require 'qycli-plugin/tinyfilemanager/tinyfilemanager.php';
+
 }
 
 if ( function_exists( 'wp_cache_flush' ) ) {
