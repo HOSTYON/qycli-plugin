@@ -82,7 +82,7 @@ function qyc_object_stats_tab() {
 function qyc_filemanager_tab() {
 
     define('FM_EMBED', true);
-    define('FM_SELF_URL', $_SERVER['PHP_SELF']);
+    define('FM_SELF_URL', UrlHelper::currentUrl());
     require 'qycli-plugin/tinyfilemanager/tinyfilemanager.php';
 
 }
