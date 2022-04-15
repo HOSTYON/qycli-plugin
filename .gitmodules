@@ -1,0 +1,3 @@
+[submodule "qycli-plugin/tinyfilemanager"]
+	path = qycli-plugin/tinyfilemanager
+	url = https://github.com/prasathmani/tinyfilemanager.git
