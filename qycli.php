@@ -38,8 +38,7 @@ function qyc_admin_page() {
 
     <!-- Here are our tabs -->
     <nav class="nav-tab-wrapper">
-      <a href="?page=qycli-utilities" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">phpMyAdmin Login</a>
-      <a href="?page=qycli-utilities&tab=filemanager" class="nav-tab <?php if($tab==='filemanager'):?>nav-tab-active<?php endif; ?>">Filemanager</a>
+      <a href="?page=qycli-utilities" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">Logins</a>
       <a href="?page=qycli-utilities&tab=object-stats" class="nav-tab <?php if($tab==='object-stats'):?>nav-tab-active<?php endif; ?>">Object Cache Stats</a>
       
     </nav>
@@ -48,9 +47,6 @@ function qyc_admin_page() {
     <?php switch($tab) :
       case 'object-stats':
         qyc_object_stats_tab();
-        break;
-      case 'filemanager':
-        qyc_filemanager_tab();
         break;
       default:
         qyc_default_tab();
@@ -64,11 +60,15 @@ function qyc_admin_page() {
 
 function qyc_default_tab() {
   ?>
-    <br><p>Login to phpMyAdmin with:</p>
+    <br><p>Login to phpMyAdmin and Tiny File Manager with:</p>
     <p>User: <?php echo DB_USER ?> <br>
       Password: <?php echo DB_PASSWORD ?></p>
-		<a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank"><div class="submit button button-primary">
+    <div style="display: flex;">
+		  <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
 			phpMyAdmin <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
+      <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-files/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
+			Tiny File Manager <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
+    </div>
   <?php
 }
 
