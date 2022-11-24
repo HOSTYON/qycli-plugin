@@ -1,14 +1,14 @@
 <?php
 /**
  * @package qycli-utilities
- * @version 1.0.1
+ * @version 1.0.2
  */
 /*
 Plugin Name: qycli Utilities
 Description: qycli Utilities
 Author: Micha Cassola
 Author URI: https://github.com/michacassola
-Version: 1.0.1
+Version: 1.0.2
 License: MIT http://opensource.org/licenses/MIT
 */
 
@@ -64,9 +64,9 @@ function qyc_default_tab() {
     <p>User: <?php echo DB_USER ?> <br>
       Password: <?php echo DB_PASSWORD ?></p>
     <div style="display: flex;">
-		  <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-pma/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
+		  <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc/pma/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
 			phpMyAdmin <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
-      <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc-files/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
+      <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc/tfm/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
 			Tiny File Manager <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
     </div>
   <?php
@@ -77,14 +77,6 @@ function qyc_object_stats_tab() {
   <h3 style="margin: 30px 0 15px 0;">WP redis Object Caching Statistics</h3>
 		<?php $GLOBALS['wp_object_cache']->stats(); ?>
   <?php
-}
-
-function qyc_filemanager_tab() {
-
-    define('FM_EMBED', true);
-    define('FM_SELF_URL', $_SERVER['REQUEST_URI']);
-    require 'qycli-plugin/tinyfilemanager/tinyfilemanager.php';
-
 }
 
 if ( function_exists( 'wp_cache_flush' ) ) {
