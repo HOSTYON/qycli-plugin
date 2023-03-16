@@ -1,14 +1,14 @@
 <?php
 /**
  * @package qycli-utilities
- * @version 1.0.2
+ * @version 1.0.3
  */
 /*
 Plugin Name: qycli Utilities
 Description: qycli Utilities
 Author: Micha Cassola
 Author URI: https://github.com/michacassola
-Version: 1.0.2
+Version: 1.0.3
 License: MIT http://opensource.org/licenses/MIT
 */
 
@@ -60,14 +60,14 @@ function qyc_admin_page() {
 
 function qyc_default_tab() {
   ?>
-    <br><p>Login to phpMyAdmin and Tiny File Manager with:</p>
+    <br><p>Login to phpMyAdmin and File Browser with:</p>
     <p>User: <?php echo DB_USER ?> <br>
       Password: <?php echo DB_PASSWORD ?></p>
     <div style="display: flex;">
 		  <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc/pma/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
 			phpMyAdmin <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
-      <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc/tfm/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
-			Tiny File Manager <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
+      <a href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/qyc/fb/" target="_blank" style="margin: 5px;"><div class="submit button button-primary">
+			File Browser <div class="dashicons dashicons-external" style="position: relative; bottom: 2px; vertical-align: middle;"></div></div></a>
     </div>
   <?php
 }
