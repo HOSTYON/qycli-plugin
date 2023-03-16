@@ -60,7 +60,7 @@ function qyc_admin_page() {
 
 function qyc_default_tab() {
   ?>
-    <br><p>Login to phpMyAdmin and Tiny File Manager with:</p>
+    <br><p>Login to phpMyAdmin and File Browser with:</p>
     <p>User: <?php echo DB_USER ?> <br>
       Password: <?php echo DB_PASSWORD ?></p>
     <div style="display: flex;">
